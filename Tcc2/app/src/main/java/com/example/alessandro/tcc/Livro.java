@@ -14,8 +14,10 @@ public class Livro {
     private String editora;
     private int edicao;
     private Date data_publicacao;
+    private int id;
 
-    public Livro(String indioma, String titulo, String area, String autor, String editora, int edicao, Date data_publicacao){
+    public Livro(String indioma, String titulo, String area, String autor, String editora, int edicao, Date data_publicacao,
+                 int id){
         this.indioma = indioma;
         this.titulo = titulo;
         this.area = area;
@@ -23,6 +25,7 @@ public class Livro {
         this.editora = editora;
         this.edicao = edicao;
         this.data_publicacao = data_publicacao;
+        this.id = id;
     }
 
     public String getIndioma(){
@@ -72,5 +75,12 @@ public class Livro {
     }
     public void setData_publicacao(Date data_publicacao){
         this.data_publicacao = data_publicacao;
+    }
+
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id = id;
     }
 }

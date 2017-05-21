@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CadastroAlunoActivity"
+            android:label="@string/title_activity_cadastro_aluno" />
+        <activity
+            android:name=".CadastroFuncionarioActivity"
+            android:label="@string/title_activity_cadastro_professor" />
+        <activity
+            android:name=".CadastroLivroActivity"
+            android:label="@string/title_activity_cadastro_livro" />
+        <activity
+            android:name=".CadastroDisciplinaActivity"
+            android:label="@string/title_activity_cadastro_disciplina"></activity>
     </application>
 
 </manifest>

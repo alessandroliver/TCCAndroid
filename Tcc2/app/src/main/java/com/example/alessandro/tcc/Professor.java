@@ -7,26 +7,17 @@ import java.util.Date;
  */
 
 public class Professor extends Funcionario {
-    private int matricua;
     private double hora_aula;
     private Disciplina disciplina;
 
     public Professor(String nome, String cpf, String rg, String nacionalidade, char sexo, String naturalidade, Endereco endereco,
-                     Date data_nascimento, Telefone telefone, double salario, int id, double carga_horaria, String cargo,
-                     int matricula, double hora_aula, Disciplina disciplina){
-        super(nome, cpf, rg, nacionalidade, sexo, naturalidade, endereco, data_nascimento, telefone, salario, id, carga_horaria,
-                cargo);
+                     Date data_nascimento, Telefone telefone, String email, double salario, int id, double carga_horaria,
+                     String cargo, double hora_aula, Disciplina disciplina){
+        super(nome, cpf, rg, nacionalidade, sexo, naturalidade, endereco, data_nascimento, telefone, email, salario, id,
+                carga_horaria, cargo);
 
-        this.matricua = matricula;
         this.hora_aula = hora_aula;
         this.disciplina = disciplina;
-    }
-
-    public int getMatricua(){
-        return matricua;
-    }
-    public void setMatricua(int matricua){
-        this.matricua = matricua;
     }
 
     public double getHora_aula(){

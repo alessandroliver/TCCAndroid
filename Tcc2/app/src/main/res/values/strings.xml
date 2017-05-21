@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Tcc</string>
+    <string name="title_activity_cadastro_pessoas">CadastroPessoasActivity</string>
+    <string name="title_activity_cadastro_aluno">CadastroAlunoActivity</string>
+    <string name="title_activity_cadastro_funcionario">CadastroFuncionarioActivity</string>
+    <string name="title_activity_cadastro_livro">CadastroLivroActivity</string>
+    <string name="title_activity_cadastro_disciplina">CadastroDisciplinaActivity</string>
 </resources>

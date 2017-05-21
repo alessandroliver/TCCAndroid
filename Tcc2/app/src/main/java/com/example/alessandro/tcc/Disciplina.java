@@ -16,9 +16,10 @@ public class Disciplina {
     private double nota3;
     private double nota4;
     private int faltas;
+    private double carga_horaria;
 
     public Disciplina (String nome, int codigo, Date data_inicio, Date data_fim, double nota1, double nota2, double nota3,
-                       double nota4, int faltas){
+                       double nota4, int faltas, double carga_horaria){
         this.nome = nome;
         this.codigo = codigo;
         this.data_inicio = data_inicio;
@@ -28,6 +29,7 @@ public class Disciplina {
         this.nota3 = nota3;
         this.nota4 = nota4;
         this.faltas = faltas;
+        this.carga_horaria = carga_horaria;
     }
 
     public String getNome(){
@@ -91,5 +93,12 @@ public class Disciplina {
     }
     public void setFaltas(int faltas){
         this.faltas = faltas;
+    }
+
+    public double getCarga_horaria(){
+        return carga_horaria;
+    }
+    public void setCarga_horaria(double carga_horaria){
+        this.carga_horaria = carga_horaria;
     }
 }

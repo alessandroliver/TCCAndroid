@@ -16,9 +16,10 @@ public abstract class Pessoa {
     private Endereco endereco;
     private Date data_nascimento;
     private Telefone telefone;
+    private String email;
 
     public Pessoa(String nome, String cpf, String rg, String nacionalidade, char sexo, String naturalidade, Endereco endereco,
-                  Date data_nascimento, Telefone telefone){
+                  Date data_nascimento, Telefone telefone, String email){
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
@@ -28,6 +29,7 @@ public abstract class Pessoa {
         this.endereco = endereco;
         this.data_nascimento = data_nascimento;
         this.telefone = telefone;
+        this.email = email;
     }
 
     public String getNome(){
@@ -91,5 +93,12 @@ public abstract class Pessoa {
     }
     public void setTelefone(Telefone telefone){
         this.telefone = telefone;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String email){
+        this.email = email;
     }
 }
