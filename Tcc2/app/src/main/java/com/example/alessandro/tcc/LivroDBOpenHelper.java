@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.sql.Array;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +21,9 @@ public class LivroDBOpenHelper extends SQLiteOpenHelper {
 
     static final String DATABASE_NAME = "DBLivro";
 
-    static final String TABLE_RSS = "TableLivro";
+    static final String TABLE_LIVRO = "TableLivro";
 
-    static final String NOME = "nome";
+    static final String INDIOMA = "indioma";
     static final String TITULO = "titulo";
     static final String AREA = "area";
     static final String AUTOR = "autor";
@@ -30,18 +31,19 @@ public class LivroDBOpenHelper extends SQLiteOpenHelper {
     static final String EDICAO = "edicao";
     static final String DATA_PUBLICACAO = "dataPub";
     static final String _ID = "_id";
+    static final String[]COLUNA = {INDIOMA, TITULO, AREA, AUTOR, EDITORA, EDICAO, DATA_PUBLICACAO, _ID};
     final private Context mContext;
 
-    public LivroDBOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public LivroDBOpenHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.mContext = context;
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_RSS+"(" + _ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT," + NOME + " TEXT,"
+        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_LIVRO+"(" + _ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT," + INDIOMA + " TEXT,"
                 + TITULO + " TEXT NOT NULL," + AREA + " TEXT," + AUTOR
                 + " TEXT," + EDITORA + " TEXT," + EDICAO + "INTEGER,"
                 + DATA_PUBLICACAO + "TEXT" +")";
@@ -52,14 +54,14 @@ public class LivroDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RSS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LIVRO);
 
         onCreate(db);
 
     }
 
     void deleteDatabase() {
-        mContext.deleteDatabase(TABLE_RSS);
+        mContext.deleteDatabase(TABLE_LIVRO);
     }
 
 }

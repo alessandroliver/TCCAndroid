@@ -20,7 +20,7 @@ public class AlunoDBOpenHelper extends SQLiteOpenHelper {
 
     static final String DATABASE_NAME = "DBAluno";
 
-    static final String TABLE_RSS = "TableAluno";
+    static final String TABLE_ALUNO = "TableAluno";
 
     static final String NOME = "nome";
     static final String CPF = "cpf";
@@ -64,17 +64,24 @@ public class AlunoDBOpenHelper extends SQLiteOpenHelper {
     static final String MEDIA4BOLETIM = "media4Bol";
     static final String MEDIAGERALBOLETIM = "mediaGerBol";
     static final String RECUPERACAOBOLETIM = "recuperacaoBol";
+    static final String[]COLUNA = {NOME, CPF, RG, NACIONALIDADE, NATURALIDADE, SEXO, RUAENDERECO,
+            BAIRROENDERECO, NUMEROENDERECO, CIDADEENDERECO, CEPENDERECO, ESTADOENDERECO, COMPLEMENTOENDERECO,
+            DATA_NASCIMENTO, OPERADORATELEFONE, NUMEROTELEFONE, DDDTELEFONE, EMAIL, TURMA, COTA, CURSO,
+            MATRICULA, DATAMATRICULA, NOTAENTRADA, HORASCURSADAS, HORASRESTANTES, NOMEDISCIPLINA, CODIGODISCIPLINA,
+            DATAINICIODISCIPLINA, DATAFIMDISCIPLINA, NOTA1DISCIPLINA, NOTA2DISCIPLINA, NOTA3DISCIPLINA,
+            NOTA4DISCIPLINA, FALTASDISCIPLINA, CARGAHORARIADISCIPLINA, MEDIA1BOLETIM, MEDIA2BOLETIM,
+            MEDIA3BOLETIM, MEDIA4BOLETIM, MEDIAGERALBOLETIM, RECUPERACAOBOLETIM};
     final private Context mContext;
 
-    public AlunoDBOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public AlunoDBOpenHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.mContext = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_RSS+"(" + MATRICULA
+        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_ALUNO+"(" + MATRICULA
                 + " INTEGER PRIMARY KEY AUTOINCREMENT," + CPF + " TEXT,"
                 + NOME + " TEXT NOT NULL," + RG + " TEXT," + NACIONALIDADE
                 + " TEXT," + NATURALIDADE + " TEXT," + SEXO + " TEXT,"
@@ -100,14 +107,14 @@ public class AlunoDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RSS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALUNO);
 
         onCreate(db);
 
     }
 
     void deleteDatabase() {
-        mContext.deleteDatabase(TABLE_RSS);
+        mContext.deleteDatabase(TABLE_ALUNO);
     }
 
 }

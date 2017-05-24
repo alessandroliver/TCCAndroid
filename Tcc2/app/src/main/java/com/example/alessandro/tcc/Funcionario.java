@@ -12,7 +12,7 @@ public class Funcionario extends Pessoa {
     private double carga_horaria;
     private String cargo;
 
-    public Funcionario(String nome, String cpf, String rg, String nacionalidade, char sexo, String naturalidade, Endereco endereco,
+    public Funcionario(String nome, String cpf, String rg, String nacionalidade, String sexo, String naturalidade, Endereco endereco,
                        Date data_nascimento, Telefone telefone, String email, double salario, int id, double carga_horaria,
                        String cargo){
         super(nome, cpf, rg, nacionalidade, sexo, naturalidade, endereco, data_nascimento, telefone, email);

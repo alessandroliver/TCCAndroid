@@ -20,7 +20,7 @@ public class DisciplinaDBOpenHelper extends SQLiteOpenHelper {
 
     static final String DATABASE_NAME = "DBDisciplina";
 
-    static final String TABLE_RSS = "TableDisciplina";
+    static final String TABLE_DISCIPLINA = "TableDisciplina";
 
     static final String NOME = "nome";
     static final String CODIGO = "codigo";
@@ -32,10 +32,11 @@ public class DisciplinaDBOpenHelper extends SQLiteOpenHelper {
     static final String NOTA4 = "nota4";
     static final String FALTAS = "faltas";
     static final String CARGAHORARIA = "cargaHoraria";
+    static final String[]COLUNA = {NOME, CODIGO, DATA_INICIO, DATA_FIM, NOTA1, NOTA2, NOTA3, NOTA4, FALTAS, CARGAHORARIA};
     final private Context mContext;
 
-    public DisciplinaDBOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DisciplinaDBOpenHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
         this.mContext = context;
 
@@ -43,7 +44,7 @@ public class DisciplinaDBOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_RSS+"(" + CODIGO
+        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_DISCIPLINA+"(" + CODIGO
                 + " INTEGER PRIMARY KEY AUTOINCREMENT," + DATA_INICIO + " TEXT,"
                 + NOME + " TEXT NOT NULL," + DATA_FIM + " TEXT," + NOTA1
                 + " REAL," + NOTA2 + " REAL," + NOTA3 + " REAL,"
@@ -54,14 +55,14 @@ public class DisciplinaDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RSS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_DISCIPLINA);
 
         onCreate(db);
 
     }
 
     void deleteDatabase() {
-        mContext.deleteDatabase(TABLE_RSS);
+        mContext.deleteDatabase(TABLE_DISCIPLINA);
     }
 
 }

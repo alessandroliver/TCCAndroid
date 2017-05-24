@@ -18,7 +18,7 @@ public class Aluno extends Pessoa{
     private Disciplina disciplina;
     private Boletim boletim;
 
-    public Aluno(String nome, String cpf, String rg, String nacionalidade, char sexo, String naturalidade, Endereco endereco,
+    public Aluno(String nome, String cpf, String rg, String nacionalidade, String sexo, String naturalidade, Endereco endereco,
                  Date data_nascimento, Telefone telefone, String email, String turma, boolean cota, String curso, int matricula,
                  Date data_matricula, double nota_entrada, int horas_cursadas, int horas_restantes, Disciplina disciplina,
                  Boletim boletim){

@@ -11,14 +11,14 @@ public abstract class Pessoa {
     private String cpf;
     private String rg;
     private String nacionalidade;
-    private char sexo;
+    private String sexo;
     private String naturalidade;
     private Endereco endereco;
     private Date data_nascimento;
     private Telefone telefone;
     private String email;
 
-    public Pessoa(String nome, String cpf, String rg, String nacionalidade, char sexo, String naturalidade, Endereco endereco,
+    public Pessoa(String nome, String cpf, String rg, String nacionalidade, String sexo, String naturalidade, Endereco endereco,
                   Date data_nascimento, Telefone telefone, String email){
         this.nome = nome;
         this.cpf = cpf;
@@ -60,10 +60,10 @@ public abstract class Pessoa {
         this.nacionalidade = nacionalidade;
     }
 
-    public char getSexo(){
+    public String getSexo(){
         return sexo;
     }
-    public void setSexo(char sexo){
+    public void setSexo(String sexo){
         this.sexo = sexo;
     }
 

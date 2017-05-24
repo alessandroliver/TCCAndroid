@@ -20,7 +20,7 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
 
     static final String DATABASE_NAME = "DBFuncionario";
 
-    static final String TABLE_RSS = "TableFuncionario";
+    static final String TABLE_FUNCIONARIO = "TableFuncionario";
 
     static final String NOME = "nome";
     static final String CPF = "cpf";
@@ -44,17 +44,21 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
     static final String _ID = "_id";
     static final String CARGA_HORARIA = "cargaHr";
     static final String CARGO = "cargo";
+    static final String[]COLUNA = {NOME, CPF, RG, NACIONALIDADE, NATURALIDADE, SEXO, RUAENDERECO,
+    BAIRROENDERECO, NUMEROENDERECO, CIDADEENDERECO, CEPENDERECO, ESTADOENDERECO, COMPLEMENTOENDERECO,
+    DATA_NASCIMENTO, OPERADORATELEFONE, NUMEROTELEFONE, DDDTELEFONE, EMAIL, SALARIO, _ID, CARGA_HORARIA,
+    CARGO};
     final private Context mContext;
 
-    public FuncionarioDBOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public FuncionarioDBOpenHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.mContext = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_RSS+"(" + _ID
+        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_FUNCIONARIO+"(" + _ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT," + CPF + " TEXT,"
                 + NOME + " TEXT NOT NULL," + RG + " TEXT," + NACIONALIDADE
                 + " TEXT," + NATURALIDADE + " TEXT," + SEXO + " TEXT,"
@@ -72,14 +76,14 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RSS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FUNCIONARIO);
 
         onCreate(db);
 
     }
 
     void deleteDatabase() {
-        mContext.deleteDatabase(TABLE_RSS);
+        mContext.deleteDatabase(TABLE_FUNCIONARIO);
     }
 
 }
