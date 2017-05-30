@@ -34,9 +34,9 @@ public class DisciplinaDBController {
         if (cursor.moveToFirst()){
             do{
 
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date date = df.parse(cursor.getString(2));
-                DateFormat dft = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
                 Date dt = dft.parse(cursor.getString(3));
                 Disciplina dis = new Disciplina(cursor.getString(0),cursor.getInt(1),date,dt,cursor.getDouble(4),cursor.getDouble(5),
                         cursor.getDouble(6),cursor.getDouble(7),cursor.getInt(8),cursor.getDouble(9));
@@ -70,12 +70,12 @@ public class DisciplinaDBController {
         values.put(DisciplinaDBOpenHelper.NOME, disciplina.getNome());
         values.put(DisciplinaDBOpenHelper.CODIGO, disciplina.getCodigo());
 
-        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy");
         String reportD = dfr.format(disciplina.getData_inicio());
 
         values.put(DisciplinaDBOpenHelper.DATA_INICIO, reportD);
 
-        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy");
         String reportDe = dfm.format(disciplina.getData_fim());
 
         values.put(DisciplinaDBOpenHelper.DATA_FIM, reportDe);
@@ -112,12 +112,12 @@ public class DisciplinaDBController {
         values.put(DisciplinaDBOpenHelper.NOME, disciplina.getNome());
         values.put(DisciplinaDBOpenHelper.CODIGO, disciplina.getCodigo());
 
-        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy");
         String reportD = dfr.format(disciplina.getData_inicio());
 
         values.put(DisciplinaDBOpenHelper.DATA_INICIO, reportD);
 
-        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy");
         String reportDe = dfm.format(disciplina.getData_fim());
 
         values.put(DisciplinaDBOpenHelper.DATA_FIM, reportDe);

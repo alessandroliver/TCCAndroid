@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Alessandro on 21/05/2017.
+ * Created by Alessandro on 27/05/2017.
  */
 
-public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
+public class ProfessorDBOpenHelper extends SQLiteOpenHelper {
 
     static final int DATABASE_VERSION = 1;
 
-    static final String DATABASE_NAME = "DBFuncionario";
+    static final String DATABASE_NAME = "DBProfessor";
 
-    static final String TABLE_FUNCIONARIO = "TableFuncionario";
+    static final String TABLE_PROFESSOR = "TableProfessor";
 
     static final String NOME = "nome";
     static final String CPF = "cpf";
@@ -45,13 +45,14 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
     static final String _ID = "_id";
     static final String CARGA_HORARIA = "cargaHr";
     static final String CARGO = "cargo";
+    static final String DISCIPLINA = "disciplina";
     static final String[]COLUNA = {NOME, CPF, RG, NACIONALIDADE, NATURALIDADE, SEXO, RUAENDERECO,
-    BAIRROENDERECO, NUMEROENDERECO, CIDADEENDERECO, CEPENDERECO, ESTADOENDERECO, COMPLEMENTOENDERECO,
-    DATA_NASCIMENTO, OPERADORATELEFONE, NUMEROTELEFONE, DDDTELEFONE, EMAIL, SENHA, SALARIO, _ID,
-            CARGA_HORARIA, CARGO};
+            BAIRROENDERECO, NUMEROENDERECO, CIDADEENDERECO, CEPENDERECO, ESTADOENDERECO, COMPLEMENTOENDERECO,
+            DATA_NASCIMENTO, OPERADORATELEFONE, NUMEROTELEFONE, DDDTELEFONE, EMAIL, SENHA, SALARIO, _ID,
+            CARGA_HORARIA, CARGO, DISCIPLINA};
     final private Context mContext;
 
-    public FuncionarioDBOpenHelper(Context context) {
+    public ProfessorDBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.mContext = context;
     }
@@ -59,7 +60,7 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_TABLE = "CREATE TABLE " + TABLE_FUNCIONARIO+"(" + _ID
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_PROFESSOR+"(" + _ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT," + CPF + " TEXT,"
                 + NOME + " TEXT NOT NULL," + RG + " TEXT," + NACIONALIDADE
                 + " TEXT," + NATURALIDADE + " TEXT," + SEXO + " TEXT,"
@@ -68,8 +69,8 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
                 + ESTADOENDERECO + " TEXT," + COMPLEMENTOENDERECO + " TEXT,"
                 + DATA_NASCIMENTO + " TEXT," + OPERADORATELEFONE + " TEXT,"
                 + NUMEROTELEFONE + " INTEGER," + DDDTELEFONE + " INTEGER,"
-                + EMAIL + " TEXT," + SENHA + " TEXT," + SALARIO + " REAL," + CARGA_HORARIA + " REAL,"
-                + CARGO + " TEXT" +")";
+                + EMAIL + " TEXT," + SENHA + " TEXT," + SALARIO + " REAL," + CARGA_HORARIA
+                + " REAL," + CARGO + " TEXT," + DISCIPLINA + " TEXT" +")";
         db.execSQL(CREATE_TABLE);
 
     }
@@ -77,14 +78,14 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FUNCIONARIO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFESSOR);
 
         onCreate(db);
 
     }
 
     void deleteDatabase() {
-        mContext.deleteDatabase(TABLE_FUNCIONARIO);
+        mContext.deleteDatabase(TABLE_PROFESSOR);
     }
 
 }

@@ -64,13 +64,14 @@ public class AlunoDBOpenHelper extends SQLiteOpenHelper {
     static final String MEDIA4BOLETIM = "media4Bol";
     static final String MEDIAGERALBOLETIM = "mediaGerBol";
     static final String RECUPERACAOBOLETIM = "recuperacaoBol";
+    static final String SENHA = "senha";
     static final String[]COLUNA = {NOME, CPF, RG, NACIONALIDADE, NATURALIDADE, SEXO, RUAENDERECO,
             BAIRROENDERECO, NUMEROENDERECO, CIDADEENDERECO, CEPENDERECO, ESTADOENDERECO, COMPLEMENTOENDERECO,
             DATA_NASCIMENTO, OPERADORATELEFONE, NUMEROTELEFONE, DDDTELEFONE, EMAIL, TURMA, COTA, CURSO,
             MATRICULA, DATAMATRICULA, NOTAENTRADA, HORASCURSADAS, HORASRESTANTES, NOMEDISCIPLINA, CODIGODISCIPLINA,
             DATAINICIODISCIPLINA, DATAFIMDISCIPLINA, NOTA1DISCIPLINA, NOTA2DISCIPLINA, NOTA3DISCIPLINA,
             NOTA4DISCIPLINA, FALTASDISCIPLINA, CARGAHORARIADISCIPLINA, MEDIA1BOLETIM, MEDIA2BOLETIM,
-            MEDIA3BOLETIM, MEDIA4BOLETIM, MEDIAGERALBOLETIM, RECUPERACAOBOLETIM};
+            MEDIA3BOLETIM, MEDIA4BOLETIM, MEDIAGERALBOLETIM, RECUPERACAOBOLETIM, SENHA};
     final private Context mContext;
 
     public AlunoDBOpenHelper(Context context) {
@@ -81,7 +82,7 @@ public class AlunoDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_ALUNO+"(" + MATRICULA
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_ALUNO+"(" + MATRICULA
                 + " INTEGER PRIMARY KEY AUTOINCREMENT," + CPF + " TEXT,"
                 + NOME + " TEXT NOT NULL," + RG + " TEXT," + NACIONALIDADE
                 + " TEXT," + NATURALIDADE + " TEXT," + SEXO + " TEXT,"
@@ -99,8 +100,8 @@ public class AlunoDBOpenHelper extends SQLiteOpenHelper {
                 + FALTASDISCIPLINA + " INTEGER," + CARGAHORARIADISCIPLINA + " REAL,"
                 + MEDIA1BOLETIM + " REAL," + MEDIA2BOLETIM + " REAL," + MEDIA3BOLETIM + " REAL,"
                 + MEDIA4BOLETIM + " REAL," + MEDIAGERALBOLETIM + " REAL,"+ RECUPERACAOBOLETIM
-                + " REAL" +")";
-        db.execSQL(CREATE_RSS_TABLE);
+                + " REAL," + SENHA + " TEXT" +")";
+        db.execSQL(CREATE_TABLE);
 
     }
 

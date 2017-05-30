@@ -34,7 +34,7 @@ public class LivroDBController {
         if (cursor.moveToFirst()){
             do {
 
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date date = df.parse(cursor.getString(6));
                 Livro liv = new Livro(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),
                         cursor.getString(4),cursor.getInt(5),date,cursor.getInt(7));
@@ -71,7 +71,7 @@ public class LivroDBController {
         values.put(LivroDBOpenHelper.EDITORA, livro.getEditora());
         values.put(LivroDBOpenHelper.EDICAO, livro.getEdicao());
 
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String reportDate = df.format(livro.getData_publicacao());
 
         values.put(LivroDBOpenHelper.DATA_PUBLICACAO, reportDate);
@@ -108,7 +108,7 @@ public class LivroDBController {
         values.put(LivroDBOpenHelper.EDITORA, livro.getEditora());
         values.put(LivroDBOpenHelper.EDICAO, livro.getEdicao());
 
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String reportDate = df.format(livro.getData_publicacao());
 
         values.put(LivroDBOpenHelper.DATA_PUBLICACAO, reportDate);

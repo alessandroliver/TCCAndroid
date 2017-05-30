@@ -44,12 +44,12 @@ public class DisciplinaDBOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_DISCIPLINA+"(" + CODIGO
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_DISCIPLINA+"(" + CODIGO
                 + " INTEGER PRIMARY KEY AUTOINCREMENT," + DATA_INICIO + " TEXT,"
                 + NOME + " TEXT NOT NULL," + DATA_FIM + " TEXT," + NOTA1
                 + " REAL," + NOTA2 + " REAL," + NOTA3 + " REAL,"
                 + NOTA4 + " REAL," + FALTAS + " INTEGER," + CARGAHORARIA + " REAL" +")";
-        db.execSQL(CREATE_RSS_TABLE);
+        db.execSQL(CREATE_TABLE);
     }
 
     @Override

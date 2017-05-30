@@ -40,11 +40,11 @@ public class FuncionarioDBController {
                 Endereco end = new Endereco(cursor.getString(6),cursor.getString(7),cursor.getInt(8),cursor.getString(9),
                         cursor.getString(10),cursor.getString(11),cursor.getString(12));
                 Telefone tel = new Telefone(cursor.getString(14),cursor.getInt(15),cursor.getInt(16));
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date date = df.parse(cursor.getString(13));
                 Funcionario func = new Funcionario(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),
-                        cursor.getString(4),cursor.getString(5),end,date,tel,cursor.getString(17),
-                        cursor.getDouble(18),cursor.getInt(19),cursor.getDouble(20),cursor.getString(21));
+                        cursor.getString(4),cursor.getString(5),end,date,tel,cursor.getString(17),cursor.getString(18),
+                        cursor.getDouble(19),cursor.getInt(20),cursor.getDouble(21),cursor.getString(22));
 
                 // Adding contact to list
                 funcionarioList.add(func);
@@ -88,7 +88,7 @@ public class FuncionarioDBController {
         values.put(FuncionarioDBOpenHelper.ESTADOENDERECO, funcionario.getEndereco().getEstado());
         values.put(FuncionarioDBOpenHelper.COMPLEMENTOENDERECO, funcionario.getEndereco().getComplemento());
 
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String reportDate = df.format(funcionario.getData_nascimento());
 
         values.put(FuncionarioDBOpenHelper.DATA_NASCIMENTO, reportDate);
@@ -96,6 +96,7 @@ public class FuncionarioDBController {
         values.put(FuncionarioDBOpenHelper.NUMEROTELEFONE, funcionario.getTelefone().getNumero());
         values.put(FuncionarioDBOpenHelper.DDDTELEFONE, funcionario.getTelefone().getDdd());
         values.put(FuncionarioDBOpenHelper.EMAIL, funcionario.getEmail());
+        values.put(FuncionarioDBOpenHelper.SENHA, funcionario.getSenha());
         values.put(FuncionarioDBOpenHelper.SALARIO, funcionario.getSalario());
         values.put(FuncionarioDBOpenHelper._ID, funcionario.getId());
         values.put(FuncionarioDBOpenHelper.CARGA_HORARIA, funcionario.getCarga_horaria());
@@ -139,7 +140,7 @@ public class FuncionarioDBController {
         values.put(FuncionarioDBOpenHelper.ESTADOENDERECO, funcionario.getEndereco().getEstado());
         values.put(FuncionarioDBOpenHelper.COMPLEMENTOENDERECO, funcionario.getEndereco().getComplemento());
 
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String reportDate = df.format(funcionario.getData_nascimento());
 
         values.put(FuncionarioDBOpenHelper.DATA_NASCIMENTO, reportDate);
@@ -151,6 +152,7 @@ public class FuncionarioDBController {
         values.put(FuncionarioDBOpenHelper._ID, funcionario.getId());
         values.put(FuncionarioDBOpenHelper.CARGA_HORARIA, funcionario.getCarga_horaria());
         values.put(FuncionarioDBOpenHelper.CARGO, funcionario.getCargo());
+        values.put(FuncionarioDBOpenHelper.SENHA, funcionario.getSenha());
         int update = db.update(TABLE_FUNCIONARIO, values, FuncionarioDBOpenHelper._ID + " = ?",
                 new String[]{String.valueOf(funcionario.getId())});
         db.close();

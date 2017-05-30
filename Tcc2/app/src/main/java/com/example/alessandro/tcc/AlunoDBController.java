@@ -36,23 +36,23 @@ public class AlunoDBController {
             do {
                 Endereco end = new Endereco(cursor.getString(6),cursor.getString(7),cursor.getInt(8),cursor.getString(9),
                         cursor.getString(10),cursor.getString(11),cursor.getString(12));
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date date = df.parse(cursor.getString(13));
                 Telefone tel = new Telefone(cursor.getString(14),cursor.getInt(15),cursor.getInt(16));
                 boolean cot = false;
-                if (cursor.getInt(19) == 1){
+                if (cursor.getInt(20) == 1){
                     cot = true;
                 }
-                DateFormat dft = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
                 Date dt = dft.parse(cursor.getString(22));
-                Disciplina dis = new Disciplina(cursor.getString(25),cursor.getInt(26),date,dt,cursor.getDouble(27),
-                        cursor.getDouble(28),cursor.getDouble(29),cursor.getDouble(30),cursor.getInt(31),cursor.getDouble(32));
-                Boletim bol = new Boletim(cursor.getDouble(33),cursor.getDouble(34),cursor.getDouble(35),cursor.getDouble(36),
-                        cursor.getDouble(37),cursor.getDouble(38),dis);
+                Disciplina dis = new Disciplina(cursor.getString(26),cursor.getInt(27),date,dt,cursor.getDouble(28),
+                        cursor.getDouble(29),cursor.getDouble(30),cursor.getDouble(31),cursor.getInt(32),cursor.getDouble(33));
+                Boletim bol = new Boletim(cursor.getDouble(34),cursor.getDouble(35),cursor.getDouble(36),cursor.getDouble(37),
+                        cursor.getDouble(38),cursor.getDouble(39),dis);
                 Aluno alu = new Aluno(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),
-                        cursor.getString(4),cursor.getString(5),end,date,tel,cursor.getString(17),cursor.getString(18),cot,
-                        cursor.getString(20), cursor.getInt(21),dt,cursor.getDouble(22),cursor.getInt(23),cursor.getInt(24),
-                        dis,bol);
+                        cursor.getString(4),cursor.getString(5),end,date,tel,cursor.getString(17),cursor.getString(18),
+                        cursor.getString(19),cot,cursor.getString(21), cursor.getInt(22),dt,cursor.getDouble(23),cursor.getInt(24),
+                        cursor.getInt(25),dis,bol);
 
                 alunoList.add(alu);
             } while (cursor.moveToNext());
@@ -93,7 +93,7 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.ESTADOENDERECO, aluno.getEndereco().getEstado());
         values.put(AlunoDBOpenHelper.COMPLEMENTOENDERECO, aluno.getEndereco().getComplemento());
 
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String reportDate = df.format(aluno.getData_nascimento());
 
         values.put(AlunoDBOpenHelper.DATA_NASCIMENTO, reportDate);
@@ -106,7 +106,7 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.CURSO, aluno.getCurso());
         values.put(AlunoDBOpenHelper.MATRICULA, aluno.getMatricula());
 
-        DateFormat dft = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
         String reportDt = dft.format(aluno.getData_matricula());
 
         values.put(AlunoDBOpenHelper.DATAMATRICULA, reportDt);
@@ -116,12 +116,12 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.NOMEDISCIPLINA, aluno.getDisciplina().getNome());
         values.put(AlunoDBOpenHelper.CODIGODISCIPLINA, aluno.getDisciplina().getCodigo());
 
-        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy");
         String reportD = dfr.format(aluno.getDisciplina().getData_inicio());
 
         values.put(AlunoDBOpenHelper.DATAINICIODISCIPLINA, reportD);
 
-        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy");
         String reportDe = dfm.format(aluno.getDisciplina().getData_fim());
 
         values.put(AlunoDBOpenHelper.DATAFIMDISCIPLINA, reportDe);
@@ -137,6 +137,7 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.MEDIA4BOLETIM, aluno.getBoletim().getMedia4());
         values.put(AlunoDBOpenHelper.MEDIAGERALBOLETIM, aluno.getBoletim().getMedia_geral());
         values.put(AlunoDBOpenHelper.RECUPERACAOBOLETIM, aluno.getBoletim().getRecuperacao());
+        values.put(AlunoDBOpenHelper.SENHA, aluno.getSenha());
 
         check = db.insert(TABLE_ALUNO, null, values);
 
@@ -175,7 +176,7 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.ESTADOENDERECO, aluno.getEndereco().getEstado());
         values.put(AlunoDBOpenHelper.COMPLEMENTOENDERECO, aluno.getEndereco().getComplemento());
 
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String reportDate = df.format(aluno.getData_nascimento());
 
         values.put(AlunoDBOpenHelper.DATA_NASCIMENTO, reportDate);
@@ -188,7 +189,7 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.CURSO, aluno.getCurso());
         values.put(AlunoDBOpenHelper.MATRICULA, aluno.getMatricula());
 
-        DateFormat dft = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
         String reportDt = dft.format(aluno.getData_matricula());
 
         values.put(AlunoDBOpenHelper.DATAMATRICULA, reportDt);
@@ -198,12 +199,12 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.NOMEDISCIPLINA, aluno.getDisciplina().getNome());
         values.put(AlunoDBOpenHelper.CODIGODISCIPLINA, aluno.getDisciplina().getCodigo());
 
-        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy");
         String reportD = dfr.format(aluno.getDisciplina().getData_inicio());
 
         values.put(AlunoDBOpenHelper.DATAINICIODISCIPLINA, reportD);
 
-        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy");
         String reportDe = dfm.format(aluno.getDisciplina().getData_fim());
 
         values.put(AlunoDBOpenHelper.DATAFIMDISCIPLINA, reportDe);
@@ -219,6 +220,7 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.MEDIA4BOLETIM, aluno.getBoletim().getMedia4());
         values.put(AlunoDBOpenHelper.MEDIAGERALBOLETIM, aluno.getBoletim().getMedia_geral());
         values.put(AlunoDBOpenHelper.RECUPERACAOBOLETIM, aluno.getBoletim().getRecuperacao());
+        values.put(AlunoDBOpenHelper.SENHA, aluno.getSenha());
         int update = db.update(TABLE_ALUNO, values, AlunoDBOpenHelper.MATRICULA + " = ?",
                 new String[]{String.valueOf(aluno.getMatricula())});
         db.close();

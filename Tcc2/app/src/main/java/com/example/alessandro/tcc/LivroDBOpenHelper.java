@@ -42,12 +42,12 @@ public class LivroDBOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_RSS_TABLE = "CREATE TABLE " + TABLE_LIVRO+"(" + _ID
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_LIVRO+"(" + _ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT," + INDIOMA + " TEXT,"
                 + TITULO + " TEXT NOT NULL," + AREA + " TEXT," + AUTOR
                 + " TEXT," + EDITORA + " TEXT," + EDICAO + "INTEGER,"
                 + DATA_PUBLICACAO + "TEXT" +")";
-        db.execSQL(CREATE_RSS_TABLE);
+        db.execSQL(CREATE_TABLE);
 
     }
 

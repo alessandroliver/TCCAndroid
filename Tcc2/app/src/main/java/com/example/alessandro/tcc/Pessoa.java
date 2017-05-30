@@ -17,9 +17,10 @@ public abstract class Pessoa {
     private Date data_nascimento;
     private Telefone telefone;
     private String email;
+    private String senha;
 
     public Pessoa(String nome, String cpf, String rg, String nacionalidade, String sexo, String naturalidade, Endereco endereco,
-                  Date data_nascimento, Telefone telefone, String email){
+                  Date data_nascimento, Telefone telefone, String email, String senha){
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
@@ -30,6 +31,7 @@ public abstract class Pessoa {
         this.data_nascimento = data_nascimento;
         this.telefone = telefone;
         this.email = email;
+        this.senha = senha;
     }
 
     public String getNome(){
@@ -100,5 +102,12 @@ public abstract class Pessoa {
     }
     public void setEmail(String email){
         this.email = email;
+    }
+
+    public String getSenha(){
+        return senha;
+    }
+    public void setSenha(String senha){
+        this.senha = senha;
     }
 }

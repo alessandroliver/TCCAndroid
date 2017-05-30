@@ -6,6 +6,7 @@ import java.util.Date;
  * Created by Alessandro on 08/05/2017.
  */
 
+//herda da classe pessoa
 public class Aluno extends Pessoa{
     private String turma;
     private boolean cota;
@@ -18,12 +19,14 @@ public class Aluno extends Pessoa{
     private Disciplina disciplina;
     private Boletim boletim;
 
+    //construtor
     public Aluno(String nome, String cpf, String rg, String nacionalidade, String sexo, String naturalidade, Endereco endereco,
-                 Date data_nascimento, Telefone telefone, String email, String turma, boolean cota, String curso, int matricula,
-                 Date data_matricula, double nota_entrada, int horas_cursadas, int horas_restantes, Disciplina disciplina,
-                 Boletim boletim){
-        super(nome, cpf, rg, nacionalidade, sexo, naturalidade, endereco, data_nascimento, telefone, email);
-
+                 Date data_nascimento, Telefone telefone, String email, String senha, String turma, boolean cota, String curso,
+                 int matricula, Date data_matricula, double nota_entrada, int horas_cursadas, int horas_restantes,
+                 Disciplina disciplina, Boletim boletim){
+        //chama o construtor da classe pai
+        super(nome, cpf, rg, nacionalidade, sexo, naturalidade, endereco, data_nascimento, telefone, email, senha);
+        //acessar os atributos da própria classe
         this.turma = turma;
         this.cota = cota;
         this.curso = curso;
@@ -35,10 +38,11 @@ public class Aluno extends Pessoa{
         this.disciplina = disciplina;
         this.boletim = boletim;
     }
-
+    //para obter informações
     public String getTurma(){
         return turma;
     }
+    //para definir valores
     public void setTurma(String turma){
         this.turma = turma;
     }

@@ -27,7 +27,34 @@
             android:label="@string/title_activity_cadastro_livro" />
         <activity
             android:name=".CadastroDisciplinaActivity"
-            android:label="@string/title_activity_cadastro_disciplina"></activity>
+            android:label="@string/title_activity_cadastro_disciplina" />
+        <activity
+            android:name=".CadastroAlunoActivity2"
+            android:label="@string/title_activity_cadastro_aluno2" />
+        <activity
+            android:name=".CadastroFuncionarioActivity2"
+            android:label="@string/title_activity_cadastro_funcionario2" />
+        <activity
+            android:name=".CadastroProfessorActivity"
+            android:label="@string/title_activity_cadastro_professor" />
+        <activity
+            android:name=".CadastroProfessorActivity2"
+            android:label="@string/title_activity_cadastro_professor2" />
+        <activity
+            android:name=".ListAlunoActivity"
+            android:label="@string/title_activity_list_aluno" />
+        <activity
+            android:name=".ListLivroActivity"
+            android:label="@string/title_activity_list_livro" />
+        <activity
+            android:name=".ListDisciplinaActivity"
+            android:label="@string/title_activity_list_disciplina" />
+        <activity
+            android:name=".ListProfessorActivity"
+            android:label="@string/title_activity_list_professor" />
+        <activity
+            android:name=".ListFuncionarioActivity"
+            android:label="@string/title_activity_list_funcionario"></activity>
     </application>
 
 </manifest>

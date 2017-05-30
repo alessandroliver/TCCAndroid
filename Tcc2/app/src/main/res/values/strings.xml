@@ -5,4 +5,13 @@
     <string name="title_activity_cadastro_funcionario">CadastroFuncionarioActivity</string>
     <string name="title_activity_cadastro_livro">CadastroLivroActivity</string>
     <string name="title_activity_cadastro_disciplina">CadastroDisciplinaActivity</string>
+    <string name="title_activity_cadastro_aluno2">CadastroAlunoActivity2</string>
+    <string name="title_activity_cadastro_funcionario2">CadastroFuncionarioActivity2</string>
+    <string name="title_activity_cadastro_professor">CadastroProfessorActivity</string>
+    <string name="title_activity_cadastro_professor2">CadastroProfessorActivity2</string>
+    <string name="title_activity_list_aluno">ListAlunoActivity</string>
+    <string name="title_activity_list_livro">ListLivroActivity</string>
+    <string name="title_activity_list_disciplina">ListDisciplinaActivity</string>
+    <string name="title_activity_list_professor">ListProfessorActivity</string>
+    <string name="title_activity_list_funcionario">ListFuncionarioActivity</string>
 </resources>
