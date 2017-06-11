@@ -10,21 +10,21 @@ import java.text.ParseException;
 import java.util.List;
 
 public class ListLivroActivity extends Activity {
-    private List<Livro> livrolista = null;
+    private List<Livro> livroLista = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_livro);
         try {
-            livrolista = new LivroDBController(this).getAllLivro();
+            livroLista = new LivroDBController(this).getAllLivro();
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         ListView livrolista = (ListView) findViewById(R.id.livro_list);
-        ArrayAdapter<Livro> adapter = new ArrayAdapter<Livro>(this,
-                android.R.layout.simple_list_item_1, (List<Livro>) livrolista);
+        ArrayAdapter<Livro> adapter = new ArrayAdapter<Livro>(this, android.R.layout.simple_list_item_1, livroLista);
+        livrolista.setAdapter(adapter);
     }
 
 }

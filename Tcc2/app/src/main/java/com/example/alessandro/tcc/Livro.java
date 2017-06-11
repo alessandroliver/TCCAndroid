@@ -7,7 +7,7 @@ import java.util.Date;
  */
 
 public class Livro {
-    private String indioma;
+    private String idioma;
     private String titulo;
     private String area;
     private String autor;
@@ -15,10 +15,11 @@ public class Livro {
     private int edicao;
     private Date data_publicacao;
     private int id;
+    private boolean emprestado;
 
-    public Livro(String indioma, String titulo, String area, String autor, String editora, int edicao, Date data_publicacao,
-                 int id){
-        this.indioma = indioma;
+    public Livro(String idioma, String titulo, String area, String autor, String editora, int edicao, Date data_publicacao,
+                 int id, boolean emprestado){
+        this.idioma = idioma;
         this.titulo = titulo;
         this.area = area;
         this.autor = autor;
@@ -26,13 +27,14 @@ public class Livro {
         this.edicao = edicao;
         this.data_publicacao = data_publicacao;
         this.id = id;
+        this.emprestado = emprestado;
     }
 
-    public String getIndioma(){
-        return indioma;
+    public String getIdioma(){
+        return idioma;
     }
-    public void setIndioma(String indioma){
-        this.indioma = indioma;
+    public void setIdioma(String indioma){
+        this.idioma = idioma;
     }
 
     public String getTitulo(){
@@ -82,5 +84,12 @@ public class Livro {
     }
     public void setId(int id){
         this.id = id;
+    }
+
+    public boolean getEmprestado(){
+        return emprestado;
+    }
+    public void setEmprestado(boolean emprestado) {
+        this.emprestado = emprestado;
     }
 }

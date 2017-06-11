@@ -14,4 +14,7 @@
     <string name="title_activity_list_disciplina">ListDisciplinaActivity</string>
     <string name="title_activity_list_professor">ListProfessorActivity</string>
     <string name="title_activity_list_funcionario">ListFuncionarioActivity</string>
+    <string name="title_activity_notas_faltas">NotasFaltasActivity</string>
+    <string name="title_activity_emprestimo_livro">EmprestimoLivroActivity</string>
+    <string name="title_activity_matricula">MatriculaActivity</string>
 </resources>

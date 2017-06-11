@@ -82,25 +82,21 @@ public class AlunoDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_TABLE = "CREATE TABLE " + TABLE_ALUNO+"(" + MATRICULA
-                + " INTEGER PRIMARY KEY AUTOINCREMENT," + CPF + " TEXT,"
-                + NOME + " TEXT NOT NULL," + RG + " TEXT," + NACIONALIDADE
-                + " TEXT," + NATURALIDADE + " TEXT," + SEXO + " TEXT,"
-                + RUAENDERECO + " TEXT," + BAIRROENDERECO + " TEXT," + NUMEROENDERECO
-                + " INTEGER," + CIDADEENDERECO + " TEXT," + CEPENDERECO + " TEXT,"
-                + ESTADOENDERECO + " TEXT," + COMPLEMENTOENDERECO + " TEXT,"
-                + DATA_NASCIMENTO + " TEXT," + OPERADORATELEFONE + " TEXT,"
-                + NUMEROTELEFONE + " INTEGER," + DDDTELEFONE + " INTEGER,"
-                + EMAIL + " TEXT," + TURMA + " TEXT," + COTA + " INTEGER,"
-                + CURSO + " TEXT," + DATAMATRICULA + " TEXT," + NOTAENTRADA + " REAL,"
-                + HORASCURSADAS + " INTEGER," + HORASRESTANTES + " INTEGER," + CODIGODISCIPLINA
-                + " INTEGER," + DATAINICIODISCIPLINA + " TEXT," + NOMEDISCIPLINA + " TEXT,"
-                + DATAFIMDISCIPLINA + " TEXT," + NOTA1DISCIPLINA + " REAL," + NOTA2DISCIPLINA
-                + " REAL," + NOTA3DISCIPLINA + " REAL," + NOTA4DISCIPLINA + " REAL,"
-                + FALTASDISCIPLINA + " INTEGER," + CARGAHORARIADISCIPLINA + " REAL,"
-                + MEDIA1BOLETIM + " REAL," + MEDIA2BOLETIM + " REAL," + MEDIA3BOLETIM + " REAL,"
-                + MEDIA4BOLETIM + " REAL," + MEDIAGERALBOLETIM + " REAL,"+ RECUPERACAOBOLETIM
-                + " REAL," + SENHA + " TEXT" +")";
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_ALUNO+"(" + NOME + " TEXT NOT NULL,"
+                + CPF + " TEXT," + RG + " TEXT," + NACIONALIDADE + " TEXT,"  + SEXO + " TEXT,"
+                + NATURALIDADE + " TEXT," + RUAENDERECO + " TEXT," + BAIRROENDERECO + " TEXT,"
+                + NUMEROENDERECO + " INTEGER," + CIDADEENDERECO + " TEXT," + CEPENDERECO + " TEXT,"
+                + ESTADOENDERECO + " TEXT," + COMPLEMENTOENDERECO + " TEXT," + DATA_NASCIMENTO + " TEXT,"
+                + OPERADORATELEFONE + " TEXT," + NUMEROTELEFONE + " INTEGER," + DDDTELEFONE + " INTEGER,"
+                + EMAIL + " TEXT," + SENHA + " TEXT," + TURMA + " TEXT," + COTA + " INTEGER,"
+                + CURSO + " TEXT," + MATRICULA + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + DATAMATRICULA + " TEXT," + NOTAENTRADA + " REAL," + HORASCURSADAS + " INTEGER,"
+                + HORASRESTANTES + " INTEGER," + NOMEDISCIPLINA + " TEXT," + CODIGODISCIPLINA + " INTEGER,"
+                + DATAINICIODISCIPLINA + " TEXT," + DATAFIMDISCIPLINA + " TEXT," + NOTA1DISCIPLINA + " REAL,"
+                + NOTA2DISCIPLINA + " REAL," + NOTA3DISCIPLINA + " REAL," + NOTA4DISCIPLINA + " REAL,"
+                + FALTASDISCIPLINA + " INTEGER," + CARGAHORARIADISCIPLINA + " REAL," + MEDIA1BOLETIM + " REAL,"
+                + MEDIA2BOLETIM + " REAL," + MEDIA3BOLETIM + " REAL," + MEDIA4BOLETIM + " REAL,"
+                + MEDIAGERALBOLETIM + " REAL,"+ RECUPERACAOBOLETIM + " REAL" +")";
         db.execSQL(CREATE_TABLE);
 
     }

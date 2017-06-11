@@ -1,9 +1,11 @@
 package com.example.alessandro.tcc;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -33,32 +35,41 @@ public class CadastroFuncionarioActivity extends Activity {
         sexo = (EditText) findViewById(R.id.et_sexo_funcionario);
         email = (EditText) findViewById(R.id.et_email_funcionario);
 
-        sharedPreferences = getPreferences(Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        editor.putString("nomefuncionario", nome.getText().toString());
-        editor.commit();
-        editor.putString("rgfuncionario", rg.getText().toString());
-        editor.commit();
-        editor.putString("cpffuncionario", cpf.getText().toString());
-        editor.commit();
-        editor.putString("ruafuncionario", rua.getText().toString());
-        editor.commit();
-        editor.putInt("numerofuncionario", Integer.parseInt(numero.getText().toString()));
-        editor.commit();
-        editor.putString("bairrofuncionario", bairro.getText().toString());
-        editor.commit();
-        editor.putString("cidadefuncionario", cidade.getText().toString());
-        editor.commit();
-        editor.putString("estadofuncionario", estado.getText().toString());
-        editor.commit();
-        editor.putString("complementofuncionario", complemento.getText().toString());
-        editor.commit();
-        editor.putInt("cepfuncionario", Integer.parseInt(cep.getText().toString()));
-        editor.commit();
-        editor.putString("sexofuncionario", sexo.getText().toString());
-        editor.commit();
-        editor.putString("emailfuncionario", email.getText().toString());
-        editor.commit();
+        proximo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+                editor.putString("nomefuncionario", nome.getText().toString());
+                editor.commit();
+                editor.putString("rgfuncionario", rg.getText().toString());
+                editor.commit();
+                editor.putString("cpffuncionario", cpf.getText().toString());
+                editor.commit();
+                editor.putString("ruafuncionario", rua.getText().toString());
+                editor.commit();
+                editor.putInt("numerofuncionario", Integer.parseInt(numero.getText().toString()));
+                editor.commit();
+                editor.putString("bairrofuncionario", bairro.getText().toString());
+                editor.commit();
+                editor.putString("cidadefuncionario", cidade.getText().toString());
+                editor.commit();
+                editor.putString("estadofuncionario", estado.getText().toString());
+                editor.commit();
+                editor.putString("complementofuncionario", complemento.getText().toString());
+                editor.commit();
+                editor.putString("cepfuncionario", cep.getText().toString());
+                editor.commit();
+                editor.putString("sexofuncionario", sexo.getText().toString());
+                editor.commit();
+                editor.putString("emailfuncionario", email.getText().toString());
+                editor.commit();
+
+                Intent intent = new Intent (CadastroFuncionarioActivity.this, CadastroFuncionarioActivity2.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 

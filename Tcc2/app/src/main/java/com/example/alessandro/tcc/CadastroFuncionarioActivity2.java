@@ -1,7 +1,9 @@
 package com.example.alessandro.tcc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -31,10 +33,10 @@ public class CadastroFuncionarioActivity2 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_funcionario2);
 
-        cadastrar = (Button) findViewById(R.id.bt_cadastrar_aluno);
-        ddd = (EditText) findViewById(R.id.et_ddd_aluno);
-        telefone = (EditText) findViewById(R.id.et_telefone_aluno);
-        operadora = (EditText) findViewById(R.id.et_operadora_aluno);
+        cadastrar = (Button) findViewById(R.id.bt_cadastrar_funcionario);
+        ddd = (EditText) findViewById(R.id.et_ddd_funcionario);
+        telefone = (EditText) findViewById(R.id.et_telefone_funcionario);
+        operadora = (EditText) findViewById(R.id.et_operadora_funcionario);
         nacionalidade = (EditText) findViewById(R.id.et_nacionalidade_funcionario);
         naturalidade = (EditText) findViewById(R.id.et_naturalidade_funcionario);
         senha = (EditText) findViewById(R.id.et_senha_funcionario);
@@ -43,37 +45,48 @@ public class CadastroFuncionarioActivity2 extends Activity {
         cargo = (EditText) findViewById(R.id.et_cargo_funcionario);
         salario = (EditText) findViewById(R.id.et_salario_funcionario);
 
-        nome = CadastroFuncionarioActivity.sharedPreferences.getString("nomefuncionario", "");
-        rua = CadastroFuncionarioActivity.sharedPreferences.getString("ruafuncionario", "");
-        numero = CadastroFuncionarioActivity.sharedPreferences.getInt("numerofuncionario", 0);
-        bairro = CadastroFuncionarioActivity.sharedPreferences.getString("bairrofuncionario", "");
-        cidade = CadastroFuncionarioActivity.sharedPreferences.getString("cidadefuncionario", "");
-        cep = CadastroFuncionarioActivity.sharedPreferences.getString("cepfuncionario", "");
-        estado = CadastroFuncionarioActivity.sharedPreferences.getString("estadofuncionario", "");
-        complemento = CadastroFuncionarioActivity.sharedPreferences.getString("complementofuncionario", "");
-        sexo = CadastroFuncionarioActivity.sharedPreferences.getString("sexofuncionario", "");
-        cpf = CadastroFuncionarioActivity.sharedPreferences.getString("cpffuncionario", "");
-        rg = CadastroFuncionarioActivity.sharedPreferences.getString("rgfuncionario", "");
-        email = CadastroFuncionarioActivity.sharedPreferences.getString("emailfuncionario", "");
+        cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nome = CadastroFuncionarioActivity.sharedPreferences.getString("nomefuncionario", "");
+                rua = CadastroFuncionarioActivity.sharedPreferences.getString("ruafuncionario", "");
+                numero = CadastroFuncionarioActivity.sharedPreferences.getInt("numerofuncionario", 0);
+                bairro = CadastroFuncionarioActivity.sharedPreferences.getString("bairrofuncionario", "");
+                cidade = CadastroFuncionarioActivity.sharedPreferences.getString("cidadefuncionario", "");
+                cep = CadastroFuncionarioActivity.sharedPreferences.getString("cepfuncionario", "");
+                estado = CadastroFuncionarioActivity.sharedPreferences.getString("estadofuncionario", "");
+                complemento = CadastroFuncionarioActivity.sharedPreferences.getString("complementofuncionario", "");
+                sexo = CadastroFuncionarioActivity.sharedPreferences.getString("sexofuncionario", "");
+                cpf = CadastroFuncionarioActivity.sharedPreferences.getString("cpffuncionario", "");
+                rg = CadastroFuncionarioActivity.sharedPreferences.getString("rgfuncionario", "");
+                email = CadastroFuncionarioActivity.sharedPreferences.getString("emailfuncionario", "");
 
-        DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
-        Date dt = null;
-        try {
-            dt = dft.parse(data_nascimento.getText().toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        Endereco endereco = new Endereco(rua,bairro,numero,cidade,cep,estado,complemento);
-        Telefone tel = new Telefone(operadora.getText().toString(),Integer.parseInt(telefone.getText().toString()),
-                Integer.parseInt(ddd.getText().toString()));
-        Funcionario funcionario = new Funcionario(nome,cpf,rg,nacionalidade.getText().toString(),sexo,
-                naturalidade.getText().toString(),endereco,dt,tel,email,senha.getText().toString(),
-                Double.parseDouble(salario.getText().toString()),Integer.parseInt(id.getText().toString()),0,
-                cargo.getText().toString());
+                DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
+                Date dt = null;
+                try {
+                    dt = dft.parse(data_nascimento.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Endereco endereco = new Endereco(rua,bairro,numero,cidade,cep,estado,complemento);
+                Telefone tel = new Telefone(operadora.getText().toString(),Integer.parseInt(telefone.getText().toString()),
+                        Integer.parseInt(ddd.getText().toString()));
+                Funcionario funcionario = new Funcionario(nome,cpf,rg,nacionalidade.getText().toString(),sexo,
+                        naturalidade.getText().toString(),endereco,dt,tel,email,senha.getText().toString(),
+                        Double.parseDouble(salario.getText().toString()),Integer.parseInt(id.getText().toString()),0,
+                        cargo.getText().toString());
 
-        FuncionarioDBController funcionarioDBController = new FuncionarioDBController(this);
+                FuncionarioDBController funcionarioDBController = new FuncionarioDBController(CadastroFuncionarioActivity2.this);
+                funcionarioDBController.clearAll();
+                funcionarioDBController.insert(funcionario);
 
-        funcionarioDBController.insert(funcionario);
-    }
+                Intent intent = new Intent (CadastroFuncionarioActivity2.this, ListFuncionarioActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+       }
 
 }

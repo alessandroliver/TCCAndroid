@@ -23,7 +23,7 @@ public class LivroDBOpenHelper extends SQLiteOpenHelper {
 
     static final String TABLE_LIVRO = "TableLivro";
 
-    static final String INDIOMA = "indioma";
+    static final String IDIOMA = "idioma";
     static final String TITULO = "titulo";
     static final String AREA = "area";
     static final String AUTOR = "autor";
@@ -31,7 +31,8 @@ public class LivroDBOpenHelper extends SQLiteOpenHelper {
     static final String EDICAO = "edicao";
     static final String DATA_PUBLICACAO = "dataPub";
     static final String _ID = "_id";
-    static final String[]COLUNA = {INDIOMA, TITULO, AREA, AUTOR, EDITORA, EDICAO, DATA_PUBLICACAO, _ID};
+    static final String EMPRESTADO = "emprestado";
+    static final String[]COLUNA = {IDIOMA, TITULO, AREA, AUTOR, EDITORA, EDICAO, DATA_PUBLICACAO, _ID, EMPRESTADO};
     final private Context mContext;
 
     public LivroDBOpenHelper(Context context) {
@@ -42,13 +43,11 @@ public class LivroDBOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE = "CREATE TABLE " + TABLE_LIVRO+"(" + _ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT," + INDIOMA + " TEXT,"
-                + TITULO + " TEXT NOT NULL," + AREA + " TEXT," + AUTOR
-                + " TEXT," + EDITORA + " TEXT," + EDICAO + "INTEGER,"
-                + DATA_PUBLICACAO + "TEXT" +")";
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_LIVRO+"(" + IDIOMA + " TEXT,"
+                + TITULO + " TEXT NOT NULL," + AREA + " TEXT," + AUTOR + " TEXT,"
+                + EDITORA + " TEXT," + EDICAO + " INTEGER," + DATA_PUBLICACAO + " TEXT,"
+                + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + EMPRESTADO + " INTEGER" +")";
         db.execSQL(CREATE_TABLE);
-
     }
 
     @Override

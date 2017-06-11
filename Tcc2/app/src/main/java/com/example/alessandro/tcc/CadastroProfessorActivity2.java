@@ -1,7 +1,9 @@
 package com.example.alessandro.tcc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -43,38 +45,49 @@ public class CadastroProfessorActivity2 extends Activity {
         disciplina = (EditText) findViewById(R.id.et_disciplina_professor);
         senha = (EditText) findViewById(R.id.et_senha_funcionario);
 
-        nome = CadastroProfessorActivity.sharedPreferences.getString("nomeprofessor", "");
-        rua = CadastroProfessorActivity.sharedPreferences.getString("ruaprofessor", "");
-        numero = CadastroProfessorActivity.sharedPreferences.getInt("numeroprofessor", 0);
-        bairro = CadastroProfessorActivity.sharedPreferences.getString("bairroprofessor", "");
-        cidade = CadastroProfessorActivity.sharedPreferences.getString("cidadeprofessor", "");
-        cep = CadastroProfessorActivity.sharedPreferences.getString("cepprofessor", "");
-        estado = CadastroProfessorActivity.sharedPreferences.getString("estadoprofessor", "");
-        complemento = CadastroProfessorActivity.sharedPreferences.getString("complementoprofessor", "");
-        sexo = CadastroProfessorActivity.sharedPreferences.getString("sexoprofessor", "");
-        cpf = CadastroProfessorActivity.sharedPreferences.getString("cpfprofessor", "");
-        rg = CadastroProfessorActivity.sharedPreferences.getString("rgprofessor", "");
-        email = CadastroProfessorActivity.sharedPreferences.getString("emailprofessor", "");
+        cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nome = CadastroProfessorActivity.sharedPreferences.getString("nomeprofessor", "");
+                rua = CadastroProfessorActivity.sharedPreferences.getString("ruaprofessor", "");
+                numero = CadastroProfessorActivity.sharedPreferences.getInt("numeroprofessor", 0);
+                bairro = CadastroProfessorActivity.sharedPreferences.getString("bairroprofessor", "");
+                cidade = CadastroProfessorActivity.sharedPreferences.getString("cidadeprofessor", "");
+                cep = CadastroProfessorActivity.sharedPreferences.getString("cepprofessor", "");
+                estado = CadastroProfessorActivity.sharedPreferences.getString("estadoprofessor", "");
+                complemento = CadastroProfessorActivity.sharedPreferences.getString("complementoprofessor", "");
+                sexo = CadastroProfessorActivity.sharedPreferences.getString("sexoprofessor", "");
+                cpf = CadastroProfessorActivity.sharedPreferences.getString("cpfprofessor", "");
+                rg = CadastroProfessorActivity.sharedPreferences.getString("rgprofessor", "");
+                email = CadastroProfessorActivity.sharedPreferences.getString("emailprofessor", "");
 
-        DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
-        Date dt = null;
-        try {
-            dt = dft.parse(data_nascimento.getText().toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        Endereco endereco = new Endereco(rua,bairro,numero,cidade,cep,estado,complemento);
-        Telefone tel = new Telefone(operadora.getText().toString(),Integer.parseInt(telefone.getText().toString()),
-                Integer.parseInt(ddd.getText().toString()));
-        Disciplina dis = new Disciplina(nome,0,null,null,0,0,0,0,0,0);
-        Professor professor = new Professor(nome,cpf,rg,nacionalidade.getText().toString(),sexo,
-                naturalidade.getText().toString(),endereco,dt,tel,email,senha.getText().toString(),
-                Double.parseDouble(salario.getText().toString()),Integer.parseInt(id.getText().toString()),0,"Professor",
-                dis);
+                DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
+                Date dt = null;
+                try {
+                    dt = dft.parse(data_nascimento.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Endereco endereco = new Endereco(rua,bairro,numero,cidade,cep,estado,complemento);
+                Telefone tel = new Telefone(operadora.getText().toString(),Integer.parseInt(telefone.getText().toString()),
+                        Integer.parseInt(ddd.getText().toString()));
+                Disciplina dis = new Disciplina(nome,0,null,null,0,0,0,0,0,0);
+                Professor professor = new Professor(nome,cpf,rg,nacionalidade.getText().toString(),sexo,
+                        naturalidade.getText().toString(),endereco,dt,tel,email,senha.getText().toString(),
+                        Double.parseDouble(salario.getText().toString()),Integer.parseInt(id.getText().toString()),0,"Professor",
+                        dis);
 
-        ProfessorDBController professorDBController = new ProfessorDBController(this);
+                ProfessorDBController professorDBController = new ProfessorDBController(CadastroProfessorActivity2.this);
 
-        professorDBController.insert(professor);
+                professorDBController.insert(professor);
+
+                Intent intent = new Intent (CadastroProfessorActivity2.this, ListProfessorActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
 
     }
 

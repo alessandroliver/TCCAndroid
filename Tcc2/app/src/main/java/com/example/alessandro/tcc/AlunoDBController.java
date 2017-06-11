@@ -43,15 +43,19 @@ public class AlunoDBController {
                 if (cursor.getInt(20) == 1){
                     cot = true;
                 }
-                DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
-                Date dt = dft.parse(cursor.getString(22));
+                Date dt = null;
+                if(cursor.getString(22)!= null) {
+                    DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
+                     dt = dft.parse(cursor.getString(22));
+
+                }
                 Disciplina dis = new Disciplina(cursor.getString(26),cursor.getInt(27),date,dt,cursor.getDouble(28),
                         cursor.getDouble(29),cursor.getDouble(30),cursor.getDouble(31),cursor.getInt(32),cursor.getDouble(33));
                 Boletim bol = new Boletim(cursor.getDouble(34),cursor.getDouble(35),cursor.getDouble(36),cursor.getDouble(37),
                         cursor.getDouble(38),cursor.getDouble(39),dis);
                 Aluno alu = new Aluno(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),
                         cursor.getString(4),cursor.getString(5),end,date,tel,cursor.getString(17),cursor.getString(18),
-                        cursor.getString(19),cot,cursor.getString(21), cursor.getInt(22),dt,cursor.getDouble(23),cursor.getInt(24),
+                        cursor.getString(19),cot,cursor.getString(21),cursor.getInt(22),dt,cursor.getDouble(23),cursor.getInt(24),
                         cursor.getInt(25),dis,bol);
 
                 alunoList.add(alu);
@@ -83,8 +87,8 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.CPF, aluno.getCpf());
         values.put(AlunoDBOpenHelper.RG, aluno.getRg());
         values.put(AlunoDBOpenHelper.NACIONALIDADE, aluno.getNacionalidade());
-        values.put(AlunoDBOpenHelper.NATURALIDADE, aluno.getNaturalidade());
         values.put(AlunoDBOpenHelper.SEXO, aluno.getSexo());
+        values.put(AlunoDBOpenHelper.NATURALIDADE, aluno.getNaturalidade());
         values.put(AlunoDBOpenHelper.RUAENDERECO, aluno.getEndereco().getRua_av());
         values.put(AlunoDBOpenHelper.BAIRROENDERECO, aluno.getEndereco().getBairro());
         values.put(AlunoDBOpenHelper.NUMEROENDERECO, aluno.getEndereco().getNum());
@@ -101,43 +105,52 @@ public class AlunoDBController {
         values.put(AlunoDBOpenHelper.NUMEROTELEFONE, aluno.getTelefone().getNumero());
         values.put(AlunoDBOpenHelper.DDDTELEFONE, aluno.getTelefone().getDdd());
         values.put(AlunoDBOpenHelper.EMAIL, aluno.getEmail());
+        values.put(AlunoDBOpenHelper.SENHA, aluno.getSenha());
         values.put(AlunoDBOpenHelper.TURMA, aluno.getTurma());
         values.put(AlunoDBOpenHelper.COTA, aluno.getCota());
         values.put(AlunoDBOpenHelper.CURSO, aluno.getCurso());
         values.put(AlunoDBOpenHelper.MATRICULA, aluno.getMatricula());
-
         DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
-        String reportDt = dft.format(aluno.getData_matricula());
+        String reportDt = null;
+        if(aluno.getData_matricula() != null){
+
+            reportDt = dft.format(aluno.getData_matricula());
+        }
 
         values.put(AlunoDBOpenHelper.DATAMATRICULA, reportDt);
         values.put(AlunoDBOpenHelper.NOTAENTRADA, aluno.getNota_entrada());
-        values.put(AlunoDBOpenHelper.HORASCURSADAS, aluno.getHoras_cursadas());
-        values.put(AlunoDBOpenHelper.HORASRESTANTES, aluno.getHoras_restantes());
-        values.put(AlunoDBOpenHelper.NOMEDISCIPLINA, aluno.getDisciplina().getNome());
-        values.put(AlunoDBOpenHelper.CODIGODISCIPLINA, aluno.getDisciplina().getCodigo());
+        values.put(AlunoDBOpenHelper.HORASCURSADAS, 0);
+        values.put(AlunoDBOpenHelper.HORASRESTANTES, 0);
+        values.put(AlunoDBOpenHelper.NOMEDISCIPLINA, "");
+        values.put(AlunoDBOpenHelper.CODIGODISCIPLINA, 0);
 
-        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy");
-        String reportD = dfr.format(aluno.getDisciplina().getData_inicio());
+        String reportD = null;
+        if(aluno.getData_matricula() != null){
+            DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy");
+            reportD = dfr.format(aluno.getDisciplina().getData_inicio());
+        }
 
         values.put(AlunoDBOpenHelper.DATAINICIODISCIPLINA, reportD);
 
-        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy");
-        String reportDe = dfm.format(aluno.getDisciplina().getData_fim());
+        String reportDe = null;
+        if(aluno.getData_matricula() != null){
+            DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy");
+            reportDe = dfm.format(aluno.getDisciplina().getData_fim());
+        }
 
         values.put(AlunoDBOpenHelper.DATAFIMDISCIPLINA, reportDe);
-        values.put(AlunoDBOpenHelper.NOTA1DISCIPLINA, aluno.getDisciplina().getNota1());
-        values.put(AlunoDBOpenHelper.NOTA2DISCIPLINA, aluno.getDisciplina().getNota2());
-        values.put(AlunoDBOpenHelper.NOTA3DISCIPLINA, aluno.getDisciplina().getNota3());
-        values.put(AlunoDBOpenHelper.NOTA4DISCIPLINA, aluno.getDisciplina().getNota4());
-        values.put(AlunoDBOpenHelper.FALTASDISCIPLINA, aluno.getDisciplina().getFaltas());
-        values.put(AlunoDBOpenHelper.CARGAHORARIADISCIPLINA, aluno.getDisciplina().getCarga_horaria());
-        values.put(AlunoDBOpenHelper.MEDIA1BOLETIM, aluno.getBoletim().getMedia1());
-        values.put(AlunoDBOpenHelper.MEDIA2BOLETIM, aluno.getBoletim().getMedia2());
-        values.put(AlunoDBOpenHelper.MEDIA3BOLETIM, aluno.getBoletim().getMedia3());
-        values.put(AlunoDBOpenHelper.MEDIA4BOLETIM, aluno.getBoletim().getMedia4());
-        values.put(AlunoDBOpenHelper.MEDIAGERALBOLETIM, aluno.getBoletim().getMedia_geral());
-        values.put(AlunoDBOpenHelper.RECUPERACAOBOLETIM, aluno.getBoletim().getRecuperacao());
-        values.put(AlunoDBOpenHelper.SENHA, aluno.getSenha());
+        values.put(AlunoDBOpenHelper.NOTA1DISCIPLINA, 0);
+        values.put(AlunoDBOpenHelper.NOTA2DISCIPLINA, 0);
+        values.put(AlunoDBOpenHelper.NOTA3DISCIPLINA, 0);
+        values.put(AlunoDBOpenHelper.NOTA4DISCIPLINA, 0);
+        values.put(AlunoDBOpenHelper.FALTASDISCIPLINA, 0);
+        values.put(AlunoDBOpenHelper.CARGAHORARIADISCIPLINA, 0);
+        values.put(AlunoDBOpenHelper.MEDIA1BOLETIM, 0);
+        values.put(AlunoDBOpenHelper.MEDIA2BOLETIM, 0);
+        values.put(AlunoDBOpenHelper.MEDIA3BOLETIM, 0);
+        values.put(AlunoDBOpenHelper.MEDIA4BOLETIM, 0);
+        values.put(AlunoDBOpenHelper.MEDIAGERALBOLETIM, 0);
+        values.put(AlunoDBOpenHelper.RECUPERACAOBOLETIM, 0);
 
         check = db.insert(TABLE_ALUNO, null, values);
 

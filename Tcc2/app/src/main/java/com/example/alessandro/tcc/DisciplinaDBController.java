@@ -33,11 +33,18 @@ public class DisciplinaDBController {
         Cursor cursor = loadItens();
         if (cursor.moveToFirst()){
             do{
+                Date date = null;
+                if(cursor.getString(2) != null){
+                    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                    date = df.parse(cursor.getString(2));
+                }
+                Date dt = null;
+                if(cursor.getString(3) != null){
+                    DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
+                    dt = dft.parse(cursor.getString(3));
+                }
 
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                Date date = df.parse(cursor.getString(2));
-                DateFormat dft = new SimpleDateFormat("MM/dd/yyyy");
-                Date dt = dft.parse(cursor.getString(3));
+
                 Disciplina dis = new Disciplina(cursor.getString(0),cursor.getInt(1),date,dt,cursor.getDouble(4),cursor.getDouble(5),
                         cursor.getDouble(6),cursor.getDouble(7),cursor.getInt(8),cursor.getDouble(9));
 
@@ -70,20 +77,26 @@ public class DisciplinaDBController {
         values.put(DisciplinaDBOpenHelper.NOME, disciplina.getNome());
         values.put(DisciplinaDBOpenHelper.CODIGO, disciplina.getCodigo());
 
-        DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy");
-        String reportD = dfr.format(disciplina.getData_inicio());
+        String reportD = null;
+        if(disciplina.getData_inicio() != null) {
+            DateFormat dfr = new SimpleDateFormat("MM/dd/yyyy");
+            reportD = dfr.format(disciplina.getData_inicio());
+        }
 
         values.put(DisciplinaDBOpenHelper.DATA_INICIO, reportD);
 
-        DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy");
-        String reportDe = dfm.format(disciplina.getData_fim());
+        String reportDe = null;
+        if(disciplina.getData_inicio() != null) {
+            DateFormat dfm = new SimpleDateFormat("MM/dd/yyyy");
+            reportDe = dfm.format(disciplina.getData_fim());
+        }
 
         values.put(DisciplinaDBOpenHelper.DATA_FIM, reportDe);
-        values.put(DisciplinaDBOpenHelper.NOTA1, disciplina.getNota1());
-        values.put(DisciplinaDBOpenHelper.NOTA2, disciplina.getNota2());
-        values.put(DisciplinaDBOpenHelper.NOTA3, disciplina.getNota3());
-        values.put(DisciplinaDBOpenHelper.NOTA4, disciplina.getNota4());
-        values.put(DisciplinaDBOpenHelper.FALTAS, disciplina.getFaltas());
+        values.put(DisciplinaDBOpenHelper.NOTA1, 0);
+        values.put(DisciplinaDBOpenHelper.NOTA2, 0);
+        values.put(DisciplinaDBOpenHelper.NOTA3, 0);
+        values.put(DisciplinaDBOpenHelper.NOTA4, 0);
+        values.put(DisciplinaDBOpenHelper.FALTAS, 0);
         values.put(DisciplinaDBOpenHelper.CARGAHORARIA, disciplina.getCarga_horaria());
 
         check = db.insert(TABLE_DISCIPLINA, null, values);

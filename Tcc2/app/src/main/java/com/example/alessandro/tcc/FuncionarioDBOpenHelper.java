@@ -26,8 +26,8 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
     static final String CPF = "cpf";
     static final String RG = "rg";
     static final String NACIONALIDADE = "nacionalidade";
-    static final String NATURALIDADE = "naturalidade";
     static final String SEXO = "sexo";
+    static final String NATURALIDADE = "naturalidade";
     static final String RUAENDERECO = "ruaEnd";
     static final String BAIRROENDERECO = "bairroEnd";
     static final String NUMEROENDERECO = "numeroEnd";
@@ -45,7 +45,7 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
     static final String _ID = "_id";
     static final String CARGA_HORARIA = "cargaHr";
     static final String CARGO = "cargo";
-    static final String[]COLUNA = {NOME, CPF, RG, NACIONALIDADE, NATURALIDADE, SEXO, RUAENDERECO,
+    static final String[]COLUNA = {NOME, CPF, RG, NACIONALIDADE, SEXO, NATURALIDADE, RUAENDERECO,
     BAIRROENDERECO, NUMEROENDERECO, CIDADEENDERECO, CEPENDERECO, ESTADOENDERECO, COMPLEMENTOENDERECO,
     DATA_NASCIMENTO, OPERADORATELEFONE, NUMEROTELEFONE, DDDTELEFONE, EMAIL, SENHA, SALARIO, _ID,
             CARGA_HORARIA, CARGO};
@@ -59,17 +59,14 @@ public class FuncionarioDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_TABLE = "CREATE TABLE " + TABLE_FUNCIONARIO+"(" + _ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT," + CPF + " TEXT,"
-                + NOME + " TEXT NOT NULL," + RG + " TEXT," + NACIONALIDADE
-                + " TEXT," + NATURALIDADE + " TEXT," + SEXO + " TEXT,"
-                + RUAENDERECO + " TEXT," + BAIRROENDERECO + " TEXT," + NUMEROENDERECO
-                + " INTEGER," + CIDADEENDERECO + " TEXT," + CEPENDERECO + " TEXT,"
-                + ESTADOENDERECO + " TEXT," + COMPLEMENTOENDERECO + " TEXT,"
-                + DATA_NASCIMENTO + " TEXT," + OPERADORATELEFONE + " TEXT,"
-                + NUMEROTELEFONE + " INTEGER," + DDDTELEFONE + " INTEGER,"
-                + EMAIL + " TEXT," + SENHA + " TEXT," + SALARIO + " REAL," + CARGA_HORARIA + " REAL,"
-                + CARGO + " TEXT" +")";
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_FUNCIONARIO+"(" + NOME + " TEXT NOT NULL,"
+                + CPF + " TEXT," + RG + " TEXT," + NACIONALIDADE + " TEXT," + SEXO + " TEXT,"
+                + NATURALIDADE + " TEXT," + RUAENDERECO + " TEXT," + BAIRROENDERECO + " TEXT,"
+                + NUMEROENDERECO + " INTEGER," + CIDADEENDERECO + " TEXT," + CEPENDERECO + " TEXT,"
+                + ESTADOENDERECO + " TEXT," + COMPLEMENTOENDERECO + " TEXT," + DATA_NASCIMENTO + " TEXT,"
+                + OPERADORATELEFONE + " TEXT," + NUMEROTELEFONE + " INTEGER," + DDDTELEFONE + " INTEGER,"
+                + EMAIL + " TEXT," + SENHA + " TEXT," + SALARIO + " REAL," + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + CARGA_HORARIA + " REAL," + CARGO + " TEXT" +")";
         db.execSQL(CREATE_TABLE);
 
     }

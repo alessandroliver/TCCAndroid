@@ -98,8 +98,8 @@ public class ProfessorDBController {
         values.put(ProfessorDBOpenHelper.SENHA, professor.getSenha());
         values.put(ProfessorDBOpenHelper.SALARIO, professor.getSalario());
         values.put(ProfessorDBOpenHelper._ID, professor.getId());
-        values.put(ProfessorDBOpenHelper.CARGA_HORARIA, professor.getCarga_horaria());
-        values.put(ProfessorDBOpenHelper.CARGO, professor.getCargo());
+        values.put(ProfessorDBOpenHelper.CARGA_HORARIA, 0);
+        values.put(ProfessorDBOpenHelper.CARGO, "");
         values.put(ProfessorDBOpenHelper.DISCIPLINA, String.valueOf(professor.getDisciplina()));
 
 

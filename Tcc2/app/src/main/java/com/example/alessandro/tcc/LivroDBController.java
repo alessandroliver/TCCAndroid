@@ -21,6 +21,7 @@ import static com.example.alessandro.tcc.LivroDBOpenHelper.TABLE_LIVRO;
  */
 
 public class LivroDBController {
+
     private SQLiteDatabase db;
     private LivroDBOpenHelper livroDB;
 
@@ -32,12 +33,16 @@ public class LivroDBController {
         List<Livro> livroList = new ArrayList<Livro>();
         Cursor cursor = loadItens();
         if (cursor.moveToFirst()){
-            do {
+            do{
 
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date date = df.parse(cursor.getString(6));
+                boolean emp = false;
+                if (cursor.getInt(8) == 1){
+                    emp = true;
+                }
                 Livro liv = new Livro(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),
-                        cursor.getString(4),cursor.getInt(5),date,cursor.getInt(7));
+                        cursor.getString(4),cursor.getInt(5),date,cursor.getInt(7), emp);
 
                 livroList.add(liv);
             } while (cursor.moveToNext());
@@ -64,7 +69,7 @@ public class LivroDBController {
         SQLiteDatabase db = livroDB.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(LivroDBOpenHelper.INDIOMA, livro.getIndioma());
+        values.put(LivroDBOpenHelper.IDIOMA, livro.getIdioma());
         values.put(LivroDBOpenHelper.TITULO, livro.getTitulo());
         values.put(LivroDBOpenHelper.AREA, livro.getArea());
         values.put(LivroDBOpenHelper.AUTOR, livro.getAutor());
@@ -76,6 +81,7 @@ public class LivroDBController {
 
         values.put(LivroDBOpenHelper.DATA_PUBLICACAO, reportDate);
         values.put(LivroDBOpenHelper._ID, livro.getId());
+        values.put(LivroDBOpenHelper.EMPRESTADO, livro.getEmprestado());
 
 
         check = db.insert(TABLE_LIVRO, null, values);
@@ -101,7 +107,7 @@ public class LivroDBController {
         SQLiteDatabase db = livroDB.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(LivroDBOpenHelper.INDIOMA, livro.getIndioma());
+        values.put(LivroDBOpenHelper.IDIOMA, livro.getIdioma());
         values.put(LivroDBOpenHelper.TITULO, livro.getTitulo());
         values.put(LivroDBOpenHelper.AREA, livro.getArea());
         values.put(LivroDBOpenHelper.AUTOR, livro.getAutor());
@@ -113,6 +119,7 @@ public class LivroDBController {
 
         values.put(LivroDBOpenHelper.DATA_PUBLICACAO, reportDate);
         values.put(LivroDBOpenHelper._ID, livro.getId());
+        values.put(LivroDBOpenHelper.EMPRESTADO, livro.getEmprestado());
 
         int update = db.update(TABLE_LIVRO, values, LivroDBOpenHelper._ID + " = ?", new String[]{String.valueOf(livro.getId())});
         db.close();

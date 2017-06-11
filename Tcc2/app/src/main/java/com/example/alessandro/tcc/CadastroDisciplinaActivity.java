@@ -1,7 +1,9 @@
 package com.example.alessandro.tcc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -26,12 +28,23 @@ public class CadastroDisciplinaActivity extends Activity {
         cargaHoraria = (EditText) findViewById(R.id.et_ch_disciplina);
 
 
-        Disciplina disciplina = new Disciplina(nome.getText().toString(),Integer.parseInt(codigo.getText().toString()),null,null,
-                0,0,0,0,0,Double.parseDouble(cargaHoraria.getText().toString()));
 
-        DisciplinaDBController disciplinaDBController = new DisciplinaDBController(this);
+        //esperando o clique do usuário
+        cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Disciplina disciplina = new Disciplina(nome.getText().toString(),Integer.parseInt(codigo.getText().toString()),null,null,
+                        0,0,0,0,0,Double.parseDouble(cargaHoraria.getText().toString()));
 
-        disciplinaDBController.insert(disciplina);
+                DisciplinaDBController disciplinaDBController = new DisciplinaDBController(CadastroDisciplinaActivity.this);
+
+                disciplinaDBController.insert(disciplina);
+
+                Intent intent = new Intent (CadastroDisciplinaActivity.this, ListDisciplinaActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 

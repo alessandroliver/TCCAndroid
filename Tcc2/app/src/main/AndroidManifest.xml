@@ -54,7 +54,16 @@
             android:label="@string/title_activity_list_professor" />
         <activity
             android:name=".ListFuncionarioActivity"
-            android:label="@string/title_activity_list_funcionario"></activity>
+            android:label="@string/title_activity_list_funcionario" />
+        <activity
+            android:name=".NotasFaltasActivity"
+            android:label="@string/title_activity_notas_faltas" />
+        <activity
+            android:name=".EmprestimoLivroActivity"
+            android:label="@string/title_activity_emprestimo_livro" />
+        <activity
+            android:name=".MatriculaActivity"
+            android:label="@string/title_activity_matricula"></activity>
     </application>
 
 </manifest>

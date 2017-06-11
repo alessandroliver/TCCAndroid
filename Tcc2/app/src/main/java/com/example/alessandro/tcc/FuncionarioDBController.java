@@ -78,8 +78,8 @@ public class FuncionarioDBController {
         values.put(FuncionarioDBOpenHelper.CPF, funcionario.getCpf());
         values.put(FuncionarioDBOpenHelper.RG, funcionario.getRg());
         values.put(FuncionarioDBOpenHelper.NACIONALIDADE, funcionario.getNacionalidade());
-        values.put(FuncionarioDBOpenHelper.NATURALIDADE, funcionario.getNaturalidade());
         values.put(FuncionarioDBOpenHelper.SEXO, funcionario.getSexo());
+        values.put(FuncionarioDBOpenHelper.NATURALIDADE, funcionario.getNaturalidade());
         values.put(FuncionarioDBOpenHelper.RUAENDERECO, funcionario.getEndereco().getRua_av());
         values.put(FuncionarioDBOpenHelper.BAIRROENDERECO, funcionario.getEndereco().getBairro());
         values.put(FuncionarioDBOpenHelper.NUMEROENDERECO, funcionario.getEndereco().getNum());
@@ -99,7 +99,7 @@ public class FuncionarioDBController {
         values.put(FuncionarioDBOpenHelper.SENHA, funcionario.getSenha());
         values.put(FuncionarioDBOpenHelper.SALARIO, funcionario.getSalario());
         values.put(FuncionarioDBOpenHelper._ID, funcionario.getId());
-        values.put(FuncionarioDBOpenHelper.CARGA_HORARIA, funcionario.getCarga_horaria());
+        values.put(FuncionarioDBOpenHelper.CARGA_HORARIA, 0);
         values.put(FuncionarioDBOpenHelper.CARGO, funcionario.getCargo());
 
 
@@ -118,7 +118,6 @@ public class FuncionarioDBController {
     public void clearAll(){
 
         funcionarioDB.getWritableDatabase().delete(TABLE_FUNCIONARIO,null,null);
-        db.close();
 
     }
 
@@ -130,8 +129,8 @@ public class FuncionarioDBController {
         values.put(FuncionarioDBOpenHelper.CPF, funcionario.getCpf());
         values.put(FuncionarioDBOpenHelper.RG, funcionario.getRg());
         values.put(FuncionarioDBOpenHelper.NACIONALIDADE, funcionario.getNacionalidade());
-        values.put(FuncionarioDBOpenHelper.NATURALIDADE, funcionario.getNaturalidade());
         values.put(FuncionarioDBOpenHelper.SEXO, funcionario.getSexo());
+        values.put(FuncionarioDBOpenHelper.NATURALIDADE, funcionario.getNaturalidade());
         values.put(FuncionarioDBOpenHelper.RUAENDERECO, funcionario.getEndereco().getRua_av());
         values.put(FuncionarioDBOpenHelper.BAIRROENDERECO, funcionario.getEndereco().getBairro());
         values.put(FuncionarioDBOpenHelper.NUMEROENDERECO, funcionario.getEndereco().getNum());

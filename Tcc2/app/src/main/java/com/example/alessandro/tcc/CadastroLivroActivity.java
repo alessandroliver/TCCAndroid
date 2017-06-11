@@ -1,7 +1,9 @@
 package com.example.alessandro.tcc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -27,23 +29,35 @@ public class CadastroLivroActivity extends Activity {
         edicao = (EditText) findViewById(R.id.et_edicao_livro);
         area = (EditText) findViewById(R.id.et_area_livro);
         data_publicacao = (EditText) findViewById(R.id.et_dp_livro);
-        indioma = (EditText) findViewById(R.id.et_indioma_livro);
+        indioma = (EditText) findViewById(R.id.et_idioma_livro);
         id = (EditText) findViewById(R.id.et_id_livro);
 
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-        try {
-            date = df.parse(data_publicacao.getText().toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                try {
+                    date = df.parse(data_publicacao.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
-        Livro livro = new Livro(indioma.getText().toString(),titulo.getText().toString(),area.getText().toString(),
-                autor.getText().toString(),editora.getText().toString(),Integer.parseInt(edicao.getText().toString()),
-                date ,Integer.parseInt(id.getText().toString()));
 
-        LivroDBController livroDBController = new LivroDBController(this);
+                Livro livro = new Livro(indioma.getText().toString(),titulo.getText().toString(),area.getText().toString(),
+                        autor.getText().toString(),editora.getText().toString(),Integer.parseInt(edicao.getText().toString()),
+                        date ,Integer.parseInt(id.getText().toString()),false);
 
-        livroDBController.insert(livro);
+                LivroDBController livroDBController = new LivroDBController(CadastroLivroActivity.this);
+
+                livroDBController.insert(livro);
+
+                Intent intent = new Intent (CadastroLivroActivity.this, ListLivroActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
 
     }
 
