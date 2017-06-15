@@ -47,7 +47,7 @@
         android:textSize="19dp"
         android:layout_below="@+id/et_naturalidade_funcionario"
         android:layout_marginTop="18dp"
-        android:hint="Senha" />
+        android:text="Senha" />
     <EditText
         android:id="@+id/et_senha_funcionario"
         android:layout_width="170dp"
@@ -57,14 +57,14 @@
         android:layout_marginLeft="60dp"/>
     <EditText
         android:id="@+id/et_id_funcionario"
-        android:layout_width="170dp"
+        android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_senha_funcionario"
         android:layout_marginTop="16dp"
         android:hint="ID" />
     <EditText
         android:id="@+id/et_dn_funcionario"
-        android:layout_width="165dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_senha_funcionario"
         android:layout_marginTop="16dp"

@@ -27,14 +27,14 @@
         android:hint="CPF" />
     <EditText
         android:id="@+id/et_rua_professor"
-        android:layout_width="245dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_cpf_professor"
         android:layout_marginTop="12dp"
         android:hint="Rua" />
     <EditText
         android:id="@+id/et_numero_professor"
-        android:layout_width="100dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_cpf_professor"
         android:layout_marginTop="12dp"
@@ -89,7 +89,7 @@
         android:hint="Sexo" />
     <EditText
         android:id="@+id/et_email_professor"
-        android:layout_width="165dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_cep_professor"
         android:layout_marginTop="12dp"

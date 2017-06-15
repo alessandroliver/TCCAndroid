@@ -27,14 +27,14 @@
         android:hint="CPF" />
     <EditText
         android:id="@+id/et_rua_funcionario"
-        android:layout_width="245dp"
+        android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_cpf_funcionario"
         android:layout_marginTop="12dp"
         android:hint="Rua" />
     <EditText
         android:id="@+id/et_numero_funcionario"
-        android:layout_width="100dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_cpf_funcionario"
         android:layout_marginTop="12dp"
@@ -43,7 +43,7 @@
         android:hint="Número" />
     <EditText
         android:id="@+id/et_bairro_funcionario"
-        android:layout_width="170dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_rua_funcionario"
         android:layout_marginTop="12dp"
@@ -57,14 +57,14 @@
         android:hint="Cidade" />
     <EditText
         android:id="@+id/et_estado_funcionario"
-        android:layout_width="165dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_cidade_funcionario"
         android:layout_marginTop="12dp"
         android:hint="Estado" />
     <EditText
         android:id="@+id/et_complemento_funcionario"
-        android:layout_width="170dp"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_cidade_funcionario"
         android:layout_marginTop="12dp"
@@ -89,7 +89,7 @@
         android:hint="Sexo" />
     <EditText
         android:id="@+id/et_email_funcionario"
-        android:layout_width="165dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_cep_funcionario"
         android:layout_marginTop="12dp"

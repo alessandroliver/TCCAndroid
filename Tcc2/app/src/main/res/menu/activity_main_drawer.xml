@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_cadastrar_aluno"
+            android:icon="@drawable/register_user"
+            android:title="Cadastrar Aluno" />
+        <item
+            android:id="@+id/nav_cadastrar_disciplina"
+            android:icon="@drawable/plus"
+            android:title="Cadastrar Disciplina" />
+        <item
+            android:id="@+id/nav_cadastrar_livro"
+            android:icon="@drawable/add_book"
+            android:title="Cadastrar Livro" />
+        <item
+            android:id="@+id/nav_cadastrar_funcionario"
+            android:icon="@drawable/register_user"
+            android:title="Cadastrar Funcionário" />
+        <item
+            android:id="@+id/nav_cadastrar_professor"
+            android:icon="@drawable/register_user"
+            android:title="Cadastrar Professor" />
+        <item
+            android:id="@+id/nav_visualizar_livro"
+            android:icon="@drawable/visualization"
+            android:title="Visualizar Livro" />
+        <item
+            android:id="@+id/nav_visualizar_boletim"
+            android:icon="@drawable/visualization"
+            android:title="Visualizar Boletim" />
+        <item
+            android:id="@+id/nav_visualizar_aluno"
+            android:icon="@drawable/visualization"
+            android:title="Visualizar Alunos" />
+        <item
+            android:id="@+id/nav_visualizar_disciplina"
+            android:icon="@drawable/visualization"
+            android:title="Visualizar Disciplinas" />
+        <item
+            android:id="@+id/nav_visualizar_funcionario"
+            android:icon="@drawable/visualization"
+            android:title="Visualizar Funcionários" />
+        <item
+            android:id="@+id/nav_visualizar_professor"
+            android:icon="@drawable/visualization"
+            android:title="Visualizar Professores" />
+        <item
+            android:id="@+id/nav_matricular_aluno"
+            android:icon="@drawable/register"
+            android:title="Matricular Aluno" />
+        <item
+            android:id="@+id/nav_atribuir_notas"
+            android:icon="@drawable/register"
+            android:title="Atribuir Notas" />
+
+    </group>
+
+
+
+</menu>

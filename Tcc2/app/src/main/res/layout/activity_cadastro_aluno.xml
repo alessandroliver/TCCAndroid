@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_rua_aluno"
         android:layout_marginTop="12dp"
+        android:inputType="number"
         android:hint="Número" />
     <EditText
         android:id="@+id/et_bairro_aluno"
@@ -68,36 +69,54 @@
         android:hint="Complemento" />
     <EditText
         android:id="@+id/et_sexo_aluno"
-        android:layout_width="165dp"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_cep_aluno"
         android:layout_marginTop="12dp"
         android:hint="Sexo" />
     <EditText
         android:id="@+id/et_rg_aluno"
-        android:layout_width="170dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_complemento_aluno"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="16dp"
         android:layout_toRightOf="@+id/et_sexo_aluno"
         android:hint="RG" />
+    <TextView
+        android:id="@+id/tv_cota_aluno"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:textSize="19dp"
+        android:layout_below="@+id/et_rg_aluno"
+        android:layout_toRightOf="@+id/et_cpf_aluno"
+        android:layout_marginTop="16dp"
+        android:text="Cota" />
     <EditText
-        android:id="@+id/et_cpf_aluno"
-        android:layout_width="165dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_sexo_aluno"
-        android:layout_marginTop="12dp"
-        android:hint="CPF" />
-    <EditText
-        android:id="@+id/et_email_aluno"
-        android:layout_width="170dp"
+        android:id="@+id/et_cota_aluno"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_rg_aluno"
         android:layout_marginTop="12dp"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/et_cpf_aluno"
-        android:hint="Email" />
+        android:layout_toRightOf="@+id/tv_cota_aluno"
+        android:hint="s/n" />
+
+    <EditText
+        android:id="@+id/et_senha_aluno"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_rg_aluno"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@+id/et_cota_aluno"
+        android:hint="Senha"
+        />
+    <EditText
+        android:id="@+id/et_cpf_aluno"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_rg_aluno"
+        android:layout_marginTop="12dp"
+        android:hint="CPF" />
     <EditText
         android:id="@+id/et_nacionalidade_aluno"
         android:layout_width="165dp"
@@ -109,49 +128,25 @@
         android:id="@+id/et_naturalidade_aluno"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_email_aluno"
+        android:layout_below="@+id/et_senha_aluno"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/et_cpf_aluno"
+        android:layout_toRightOf="@+id/et_nacionalidade_aluno"
         android:hint="Naturalidade" />
-    <TextView
-        android:id="@+id/tv_cota_aluno"
-        android:layout_width="40dp"
-        android:layout_height="35dp"
-        android:textSize="19dp"
-        android:layout_below="@+id/et_nacionalidade_aluno"
-        android:layout_marginTop="16dp"
-        android:hint="Cota" />
     <EditText
-        android:id="@+id/et_cota_aluno"
-        android:layout_width="75dp"
+        android:id="@+id/et_email_aluno"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_nacionalidade_aluno"
         android:layout_marginTop="12dp"
-        android:layout_toRightOf="@+id/tv_cota_aluno"
-        android:hint="s/n" />
-    <TextView
-        android:id="@+id/tv_senha_aluno"
-        android:layout_width="55dp"
-        android:layout_height="35dp"
-        android:textSize="19dp"
-        android:layout_below="@+id/et_naturalidade_aluno"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="130dp"
-        android:hint="Senha" />
-    <EditText
-        android:id="@+id/et_senha_aluno"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_naturalidade_aluno"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="185dp"/>
+        android:hint="Email" />
+
     <Button
         android:id="@+id/bt_proximo_aluno"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:hint="Próximo"
         android:layout_marginTop="28dp"
-        android:layout_below="@+id/tv_cota_aluno" />
+        android:layout_below="@+id/et_email_aluno" />
 
 </RelativeLayout>

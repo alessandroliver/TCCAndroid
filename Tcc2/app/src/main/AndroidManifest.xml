@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.alessandro.tcc">
+    package="com.if1001exemplo1.tcc">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -59,11 +62,41 @@
             android:name=".NotasFaltasActivity"
             android:label="@string/title_activity_notas_faltas" />
         <activity
-            android:name=".EmprestimoLivroActivity"
+            android:name=".AtribuirNotasActivity"
             android:label="@string/title_activity_emprestimo_livro" />
         <activity
             android:name=".MatriculaActivity"
-            android:label="@string/title_activity_matricula"></activity>
+            android:label="@string/title_activity_matricula" />
+        <activity
+            android:name="com.if1001exemplo1.tcc.ListDisciplinaMatriculaActivity"
+            android:label="@string/title_activity_list_disciplina_matricula" />
+        <activity
+            android:name=".ListDisciplinaAlunoActivity"
+            android:label="@string/title_activity_list_disciplina_aluno" />
+        <activity
+            android:name=".BoletimActivity"
+            android:label="@string/title_activity_boletim" />
+        <activity
+            android:name=".VisualizarNotaDisciplinaActivity"
+            android:label="@string/title_activity_visualizar_nota_disciplina" />
+        <activity
+            android:name=".InicioLivroActivity"
+            android:label="@string/title_activity_inicio_livro" />
+        <activity
+            android:name=".EmprestarLivroActivity"
+            android:label="@string/title_activity_emprestar_livro" />
+        <activity
+            android:name=".SenhaAcessoBoletimActivity"
+            android:label="@string/title_activity_senha_acesso_boletim"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AcessoAtribuirNotasActivity"
+            android:label="@string/title_activity_acesso_atribuir_notas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AcessoBibliotecarioActivity"
+            android:label="@string/title_activity_acesso_bibliotecario"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

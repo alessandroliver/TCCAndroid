@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alessandro.tcc.ListLivroActivity">
+    tools:context="com.if1001exemplo1.tcc.ListLivroActivity">
 
     <ListView
         android:id="@+id/livro_list"
